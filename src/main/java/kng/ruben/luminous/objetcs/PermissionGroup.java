@@ -6,10 +6,12 @@ public class PermissionGroup {
 
     private String name;
     private List<String> permissions;
+    private int id;
 
-    public PermissionGroup(String name, List<String> permissions) {
+    public PermissionGroup(String name, List<String> permissions, int id) {
         this.name = name;
         this.permissions = permissions;
+        this.id = id;
     }
 
     public String getName() {
@@ -26,5 +28,13 @@ public class PermissionGroup {
 
     public void setPermissions(List<String> permissions) {
         this.permissions = permissions;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
