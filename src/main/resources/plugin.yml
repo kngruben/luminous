@@ -1,0 +1,9 @@
+name: Luminous
+version: 1.0
+api-version: '1.19'
+author: rubenKNG
+main: kng.ruben.luminous.Luminous
+database: true
+commands:
+  permission:
+    aliases: [permissions]

@@ -11,12 +11,15 @@ import java.util.logging.Level;
 public class Luminous extends JavaPlugin {
     private static Luminous instance;
     private MongoDBDriver mongoDriver;
+    private PermissionHandler permissionHandler;
 
     @Override
     public void onEnable() {
         instance = this;
 
         initMongoDB();
+
+        permissionHandler = new PermissionHandler(mongoDriver);
 
         var pluginManager = Bukkit.getPluginManager();
 
@@ -43,6 +46,10 @@ public class Luminous extends JavaPlugin {
 
     private void logInfo(String info) {
         Bukkit.getLogger().log(Level.INFO, info);
+    }
+
+    public PermissionHandler getPermissionHandler() {
+        return permissionHandler;
     }
 
     public static Luminous getInstance() {
