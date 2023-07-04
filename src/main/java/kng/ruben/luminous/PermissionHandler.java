@@ -79,6 +79,18 @@ public class PermissionHandler {
         driver.deleteDocument(GROUP_COLLECTION, Filters.eq("name", groupName));
     }
 
+    public void setGroup(UUID uuid, String groupName) {
+        var document = loadPlayerDocument(uuid);
+
+        //TODO: Update document
+
+
+        driver.updateDocument(PLAYER_COLLECTION, Filters.eq("_id", uuid), document);
+
+        if (cache.asMap().containsKey(uuid))
+            cache.invalidate(uuid);
+    }
+
     public PermissionPlayer getPlayer(UUID uuid) {
         try {
             return cache.get(uuid);
